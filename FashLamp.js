@@ -29,7 +29,7 @@ class FashLamp {
     }
 
     turnOn() {
-        if (battery.getEnergy()===0){
+        if (battery.getEnergy()<=0){
             this.status= false
         }else {
             this.status=true
