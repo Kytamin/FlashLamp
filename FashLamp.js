@@ -29,21 +29,26 @@ class FashLamp {
     }
 
     turnOn() {
-        this.status = true
+        if (battery.getEnergy()===0){
+            this.status= false
+        }else {
+            this.status=true
+        }
+
     }
 
 
 }
 
 let battery = new Battery()
-battery.setEnergy(11)
+battery.setEnergy(parseInt(prompt("pin")))
 battery.getEnergy()
 battery.decreaseEnergy()
 let newFashLamp = new FashLamp('on')
-newFashLamp.light()
 newFashLamp.setBattery(battery)
-
-console.log(battery)
+newFashLamp.turnOn()
+newFashLamp.light()
+console.log(battery.getEnergy())
 console.log(newFashLamp)
 
 
